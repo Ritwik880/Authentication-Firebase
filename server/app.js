@@ -28,7 +28,7 @@ app.get('/about', middleware, (req, res) => {
 app.get('/contact', (req, res) => {
     res.send('<h1>This is contact page</h1>');
 });
-app.get('/login', (req, res) => {
+app.get('/signin', (req, res) => {
     res.send('<h1>This is login page</h1>');
 });
 
