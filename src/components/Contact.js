@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-
+import { useHistory } from 'react-router-dom';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 const Contact = () => {
-
+    const history = useHistory();
     const [user, setUser] = useState({
         name: "",
         email: "",
@@ -44,13 +45,27 @@ const Contact = () => {
                 message: "",
             });
             alert("Data stored successfully");
+            history.push('/welcome')
         };
 
 
     }
     return (
         <>
-            <div className="container">
+            <Navbar variant="dark" bg="dark" expand="lg">
+                <Container>
+                    <Navbar.Brand href="#home">F-Auth</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link href="#home">Home</Nav.Link>
+
+
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+            <div className="container my-3">
                 <form method="POST">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -73,6 +88,9 @@ const Contact = () => {
                     <button type="submit" onClick={postData} class="btn btn-primary">Submit</button>
                 </form>
             </div>
+            <footer>
+                <p>All Rights Reserved</p>
+            </footer>
 
         </>
     )
